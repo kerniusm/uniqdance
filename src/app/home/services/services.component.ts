@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-services',
+  selector: 'services',
   templateUrl: './services.component.html',
   styleUrls: ['./services.component.scss']
 })
