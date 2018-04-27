@@ -1,0 +1,18 @@
+.sponsors {
+    h1 {
+        color: #a7a6a6;
+
+        span {
+            border-color: #a7a6a6;
+        }
+    }
+
+    &_images {
+        align-items: center;
+
+        div {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+    }
+}

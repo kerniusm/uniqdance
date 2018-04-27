@@ -1,0 +1,38 @@
+.about-us {
+   a {
+       margin-left: 10px;
+   }
+
+   h1 {
+       margin-top: 8rem;
+   }
+
+   h3 {
+       margin-top: 6rem;
+   }
+}
+
+.about-us_photos {
+    padding: 3rem 0;
+
+    img {
+        width: 80%;
+        max-width: 295px;
+        margin: 1rem 0 1rem 2rem;
+    }
+
+    img:nth-child(2) {
+        max-width: 392px;
+        width: 100%;
+    }
+}
+
+.modal-image {
+  object-fit: cover;
+  width: 100%;
+  max-height: 300px;
+}
+
+.close {
+  cursor: pointer;
+}

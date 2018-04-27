@@ -1,0 +1,22 @@
+.pricing-plans {
+  text-align: center;
+
+  .pricing-plan {
+    margin-bottom: 20px;
+    border: 1px dashed #ddd;
+    padding: 20px;
+  }
+
+  .btn {
+    margin: 20px 0 0;
+  }
+}
+.pricing-plan-single {
+  text-align: center;
+    .pricing-plan {
+      background-color: #F4F4F4;
+      padding: 15px;
+      max-width: 600px;
+      margin: 10px auto 0;
+    }
+}
