@@ -1,0 +1,91 @@
+.register-slide {
+    background: url("../photos/registruokis.jpg") 0 top;
+    background-size: cover;
+    height: 490px;
+}
+
+.register-form {
+    h3 {
+        margin: 4rem 0;
+        color: #f38586;
+    }
+
+    button[type="submit"] {
+        margin-top: 2rem;
+    }
+
+    label {
+        min-width: 90%;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        border: 1px solid #939393;
+        border-radius: 4px;
+        margin: 6px;
+        padding: 10px;
+    }
+    
+    textarea {
+        width: 100%;
+        min-height: 100px;
+    }
+}
+
+.form_col_left,
+.form_col_right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 577px) {
+    .form_col_left,
+    .form_col_right {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form_col_left {
+        align-items: flex-end;
+    }
+
+    .form_col_right {
+        align-items: flex-start;
+    }
+
+    .register-form label {
+        min-width: auto;
+    }
+
+    input,
+    textarea {
+        width: 220px;
+    }
+
+    textarea {
+        height: 177px;
+    }
+}
+
+.btn-flamingo {
+    background-color: #f38586;
+    color: #fff;
+    border-radius: 7px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 22px;
+    letter-spacing: 1px;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    line-height: 1.5;
+    transition: background-color .15s ease-in-out,
+    border-color .15s ease-in-out,
+    box-shadow .15s ease-in-out;
+}
