@@ -1,0 +1,49 @@
+.footer {
+    background: #daebf1;
+    padding: 8rem;
+    position: relative;
+
+    p {
+        margin-bottom: 5px;
+    }
+}
+
+.scroll-to-top {
+  width: 46px;
+  height: 46px;
+  border-radius: 46px;
+  border: 2px solid #fff;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  background: transparent;
+  text-decoration: none;
+  text-align: center;
+  line-height: 38px;
+  img {
+    width: 50%;
+    height: 50%;
+  }
+}
+
+.fb-icon img {
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 576px) {
+    .fb-icon {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 2rem;
+    }
+
+    .fb-icon img {
+        margin-bottom: 0;
+    }
+
+    .footer_text {
+        padding-left: 2rem;
+        border-left: 1px solid #000;
+    }
+}

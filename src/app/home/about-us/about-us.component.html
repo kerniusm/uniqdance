@@ -1,3 +1,42 @@
-<p>
-  about-us works!
-</p>
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{ data[sectionName].title }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <img class="modal-image" src="{{ data[sectionName].imageURL }}" alt="{{ data[sectionName].title }}">
+  <div class="modal-body" [innerHtml]="data[sectionName].description">
+  </div>
+</ng-template>
+
+<section class="about-us right-col-bg-gray" id="apie">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="pr">
+                    <h1><span>Apie mus</span></h1>
+                    <h3 class="text-center">Apie įmonę</h3>
+                    <p>
+                      &quot;Uniq Dance&quot; - šokiai visiems, neišskiriant turimos negalios ar specialiųjų poreikių. Organizacijos tikslas yra
+ne tik organizuoti šokių būrelius, bet ir .. <a [routerLink]="" (click)="showModal(content, 'aboutUs')">Daugiau<b>&nbsp;&gt;</b></a>
+                    </p>
+                    <h3 class="text-center">Apie trenerę</h3>
+                    <p>
+                      Rita Žogelė – idėjos autorė ir šokių mokytoja, 2017 metais dalyvavo "Reach for change" organizuojamame konkurse "Talentas keisti 2017" - pateko į finalą ir laimėjo inkubatoriaus paramą savo idėjai "Adaptuoti šokiai specialiųjų poreikių vaikams" plėtoti. <a [routerLink]="" (click)="showModal(content, 'couch')">Daugiau<b>&nbsp;&gt;</b></a>
+                    </p>
+                    <h3 class="text-center">Nauda</h3>
+                    <p>
+                      Šiuo metu vaikai vis dažniau pasirenka pasyviai leisti laisvalaikį, prie kompiuterio, todėl labai svarbu nuo pat
+                      mažų dienų formuoti sveikos gyvensenos įpročius, aktyvius laisvalaikio praleidimo būdus.<a [routerLink]="" (click)="showModal(content, 'benefits')">Daugiau<b>&nbsp;&gt;</b></a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm about-us_photos">
+                <img src="assets/photos/Apie-mus1.png" alt="">
+                <img src="assets/photos/Apie-mus2.png" alt="">
+                <img src="assets/photos/Apie-mus3.png" alt="">
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,40 @@
+/* Logo */
+.navbar-brand {
+    margin-right: 3rem;
+}
+    .navbar-brand span {
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-size: 1rem;
+        text-align: center;
+        color: #939393;
+        margin-top: -7px;
+    }
+
+/* Items */
+.navbar-light .navbar-nav .nav-link {
+    color: #000;
+    text-transform: uppercase;
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding: 0.5rem 0;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+/* Active item */
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .show > .nav-link {
+    color: #f38586;
+    border-bottom: 1px solid #f38586;
+}
+
+/* Dropdowns */
+.dropdown-menu {
+    border: none;
+}
+    .dropdown-item:focus, .dropdown-item:hover {
+        color: #f38586;
+        background-color: transparent;
+    }

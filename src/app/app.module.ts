@@ -17,7 +17,10 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './admin/login/login.component';
 import { PostsComponent } from './admin/posts/posts.component';
 import { RegistrationsComponent } from './admin/registrations/registrations.component';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { PricesComponent } from './home/prices/prices.component';
+import { NewsComponent } from './home/news/news.component';
 
 @NgModule({
   declarations: [
@@ -34,11 +37,15 @@ import { RegistrationsComponent } from './admin/registrations/registrations.comp
     RegistrationComponent,
     LoginComponent,
     PostsComponent,
-    RegistrationsComponent
+    RegistrationsComponent,
+    PricesComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule.forRoot(),
+    ScrollToModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

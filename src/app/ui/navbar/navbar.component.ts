@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  navToggled: boolean = false;
+  dropdownToggled: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggleNav() {
+    this.navToggled = !this.navToggled;
+  }
+
+  dropdownToggle() {
+    this.dropdownToggled = !this.dropdownToggled;
   }
 
 }
