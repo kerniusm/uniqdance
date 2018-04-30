@@ -89,7 +89,7 @@ export class LoginComponent implements OnInit {
   signIn() {
     this._aS.emailSignIn(this.userForm.value['email'], this.userForm.value['password'])
     .then(
-      user => this.router.navigate(['/'])
+      user => this.router.navigate(['/posts'])
     );
   }
 

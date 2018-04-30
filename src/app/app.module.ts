@@ -25,6 +25,8 @@ import { PostsComponent } from './admin/posts/posts.component';
 import { RegistrationsComponent } from './admin/registrations/registrations.component';
 
 import { AuthService } from './core/auth.service';
+import { PostService } from './core/post.service';
+import { NewPostComponent } from './admin/new-post/new-post.component';
 
 
 @NgModule({
@@ -42,7 +44,8 @@ import { AuthService } from './core/auth.service';
     RegistrationComponent,
     LoginComponent,
     PostsComponent,
-    RegistrationsComponent
+    RegistrationsComponent,
+    NewPostComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,7 @@ import { AuthService } from './core/auth.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
