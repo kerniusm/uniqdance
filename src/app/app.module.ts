@@ -21,6 +21,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { PricesComponent } from './home/prices/prices.component';
 import { NewsComponent } from './home/news/news.component';
+import { BlogComponent } from './blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { NewsComponent } from './home/news/news.component';
     PostsComponent,
     RegistrationsComponent,
     PricesComponent,
-    NewsComponent
+    NewsComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,
