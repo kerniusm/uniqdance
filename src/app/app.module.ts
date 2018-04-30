@@ -20,6 +20,7 @@ import { RegistrationsComponent } from './admin/registrations/registrations.comp
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { PricesComponent } from './home/prices/prices.component';
+import { NewsComponent } from './home/news/news.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { PricesComponent } from './home/prices/prices.component';
     LoginComponent,
     PostsComponent,
     RegistrationsComponent,
-    PricesComponent
+    PricesComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
