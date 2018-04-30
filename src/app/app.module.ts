@@ -52,7 +52,8 @@ import { NewPostComponent } from './admin/new-post/new-post.component';
     RegistrationsComponent,
     PricesComponent,
     NewsComponent,
-    BlogComponent
+    BlogComponent,
+    NewPostComponent
   ],
   imports: [
     BrowserModule,
@@ -63,8 +64,7 @@ import { NewPostComponent } from './admin/new-post/new-post.component';
     FormsModule,
     ReactiveFormsModule,
     NgbModule.forRoot(),
-    ScrollToModule.forRoot(),
-    NewPostComponent
+    ScrollToModule.forRoot()
   ],
   providers: [AuthService, PostService],
   bootstrap: [AppComponent]
