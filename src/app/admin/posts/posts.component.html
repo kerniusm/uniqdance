@@ -5,8 +5,8 @@
   <div style="border: solid black 1px;">
     {{post.postHeader}}
     {{post.postText}}
-    <a [routerLink]="['../new-post']">{{post.photoURL}}</a>
+    <a [routerLink]="['../new-post', post.id]">{{post.photoURL}}</a>
     ID - {{post.id}}
   </div>
 </div>
-<a [routerLink]="['../new-post']">CREATE NEW POST</a>
+<a [routerLink]="['../new-post', 'new']">CREATE NEW POST</a>

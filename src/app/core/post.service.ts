@@ -11,7 +11,7 @@ export class PostService {
     private afs: AngularFirestore
   ) { }
 
-  addPost(header, text, photoURL) {
+  addPost(header, photoURL, text) {
     const post = {
       'posted_on': new Date().getTime(),
       'post_header': header,
@@ -20,6 +20,18 @@ export class PostService {
       'status': 'visible'
     };
     return this.afs.collection('posts').add(post);
+  }
+
+  getOnePost(id) {
+    return this.afs.doc<any>(`posts/${id}`);
+  }
+
+  updatePost(id, header, text, photoURL) {
+    return this.getOnePost(id).update({
+      'post_header': header,
+      'post_text': photoURL,
+      'photoURL': text
+    });
   }
 
   getAllPosts() {

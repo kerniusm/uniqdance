@@ -11,11 +11,11 @@ export class NewPostComponent implements OnInit {
 
   message: string;
   id: string;
-  post: any;
-
-  postHeader: string;
-  postText: string;
-  postImgUrl: string;
+  post: any = {
+    postHeader: '',
+    postText: '',
+    postImgUrl: ''
+  };
 
   constructor(
     private _pS: PostService,
@@ -24,20 +24,28 @@ export class NewPostComponent implements OnInit {
 
   ngOnInit() {
     this.id = this._aR.snapshot.params['id'];
-    /* if (this.id) {
+    if (this.id) {
       this._pS.getOnePost(this.id).valueChanges().subscribe(post => {
-        this.post = post;
+        this.post = {
+          postHeader: post.post_header,
+          postText: post.post_text,
+          postImgUrl: post.photoURL
+        };
       });
-    } */
+    }
   }
 
   createPost() {
-    console.log(this.postHeader, this.postImgUrl, this.postText);
-    this._pS.addPost(this.postHeader, this.postImgUrl, this.postText);
+    this._pS.addPost(this.post.postHeader, this.post.postImgUrl, this.post.postText);
     this.message = 'Post added';
-    this.postHeader = '';
-    this.postImgUrl = '';
-    this.postText = '';
+    this.post.postHeader = '';
+    this.post.postImgUrl = '';
+    this.post.postText = '';
+  }
+
+  updatePost() {
+    this._pS.updatePost(this.id, this.post.postHeader, this.post.postImgUrl, this.post.postText);
+    this.message = 'Post updated';
   }
 
 }

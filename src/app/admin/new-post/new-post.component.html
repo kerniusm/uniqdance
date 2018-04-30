@@ -1,8 +1,9 @@
-<a [routerLink]="['../posts']">BACK</a>
+<a [routerLink]="['../../posts']">BACK</a>
 <div class="container" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-  <input [(ngModel)]="postHeader" type="text" placeholder="header">
-  <input [(ngModel)]="postImgUrl" type="text" placeholder="img url">
-  <textarea  [(ngModel)]="postText" cols="30" rows="10" placeholder="text"></textarea>
-  <button (click)="createPost()">submit</button>
+  <input [(ngModel)]="post.postHeader" type="text" placeholder="header">
+  <input [(ngModel)]="post.postImgUrl" type="text" placeholder="img url">
+  <textarea  [(ngModel)]="post.postText" cols="30" rows="10" placeholder="text"></textarea>
+  <button *ngIf="!id" (click)="createPost()">submit</button>
+  <button *ngIf="id" (click)="updatePost()">update</button>
   <span>{{ message }}</span>
 </div>

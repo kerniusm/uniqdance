@@ -18,6 +18,4 @@ export class PostsComponent implements OnInit {
     this.posts = this._pS.getAllPosts();
   }
 
-  editPost() {}
-
 }
