@@ -1,3 +1,7 @@
-<p>
-  login works!
-</p>
+<div class="login-form">
+  <form [formGroup]="userForm" (ngSubmit)="signIn()">
+    <input type="email" placeholder="Enter email" formControlName="email" required>
+    <input type="password" placeholder="Enter password" formControlName="password" required>
+    <button [disabled]="!userForm.valid" type="submit">Log In</button>
+  </form>
+</div>

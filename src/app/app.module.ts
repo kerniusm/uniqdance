@@ -1,7 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -22,6 +28,11 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { PricesComponent } from './home/prices/prices.component';
 import { NewsComponent } from './home/news/news.component';
 import { BlogComponent } from './blog/blog.component';
+
+import { AuthService } from './core/auth.service';
+import { PostService } from './core/post.service';
+import { NewPostComponent } from './admin/new-post/new-post.component';
+
 
 @NgModule({
   declarations: [
@@ -45,11 +56,17 @@ import { BlogComponent } from './blog/blog.component';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     NgbModule.forRoot(),
-    ScrollToModule.forRoot()
+    ScrollToModule.forRoot(),
+    NewPostComponent
   ],
-  providers: [],
+  providers: [AuthService, PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
