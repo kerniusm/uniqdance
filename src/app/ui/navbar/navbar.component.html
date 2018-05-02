@@ -1,4 +1,5 @@
-<header class="container header">
+<header class="container header" *ngIf="!(_authS.loggedIn) || hideAdminMenu">
+  <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="#">
             <img src="assets/img/logo.png" alt="Uniqdance">
@@ -39,4 +40,29 @@
             </ul>
         </div>
     </nav>
+  </div>
+</header>
+
+<header class="header admin" *ngIf="(_authS.loggedIn && !hideAdminMenu)">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" routerLink="/posts">
+            <img src="assets/img/logo.png" alt="Uniqdance">
+            <span>Šokiai visiems</span>
+        </a>
+        <button (click)="toggleNav()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" [ngClass]="{'show': navToggled}" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/posts">Blogo įrašai</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/registracijos">Registracijos</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+  </div>
 </header>
