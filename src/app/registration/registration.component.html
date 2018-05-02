@@ -4,43 +4,43 @@
 <section class="register-form">
     <div class="container">
         <h3 class="text-center">Registruokis pirmai pamokai nemokamai!</h3>
-        <form id = "form1" >
+        <form id = "form1" #form1>
             <div class="row">
                 <div class="col-12 col-sm-6">
                     <div class="form_col_left">
                         <label for="name">
-                            <input type="text" name="name" id="name" placeholder="Vardas">
+                            <input #inputName type="text" name="name" id="name" placeholder="Vardas">
                         </label>
                         <label for="surname">
-                            <input type="text" name="surname" id="surname" placeholder="Pavardė">
+                            <input #inputSurname type="text" name="surname" id="surname" placeholder="Pavardė">
                         </label>
                         <label for="city">
-                            <input type="text" name="city" id="city" placeholder="Miestas">
+                            <input #inputCity type="text" name="city" id="city" placeholder="Miestas">
                         </label>
                         <label for="age">
-                            <input type="number" name="age" id="age" placeholder="Amžius">
+                            <input #inputAge type="number" name="age" id="age" placeholder="Amžius">
                         </label>
                         <label for="phone">
-                            <input type="text" name="phone" id="phone" placeholder="Telefono numeris">
+                            <input #inputPhone type="text" name="phone" id="phone" placeholder="Telefono numeris">
                         </label>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6">
                     <div class="form_col_right">
                         <label for="time">
-                            <input type="text" name="time" id="time" placeholder="Užsiėmimo laikas">
+                            <input #inputTime type="text" name="time" id="time" placeholder="Užsiėmimo laikas">
                         </label>
                         <label for="email">
-                            <input type="email" name="email" id="inputEmail" placeholder="El.Paštas">
+                            <input #inputEmail type="email" name="email" id="inputEmail" placeholder="El.Paštas">
                         </label>
                         <label for="message">
-                            <textarea type="text" name="message" id="inputNumber" placeholder="Žinutė"></textarea>
+                            <textarea #inputMessage type="text" name="message" id="inputNumber" placeholder="Žinutė"></textarea>
                         </label>
                     </div>
                 </div>
             </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-flamingo">SIŲSTI</button>
+                <button (click)="getInputValues(form1)" type="button" class="btn btn-flamingo">SIŲSTI</button>
             </div>
         </form>
     </div>
