@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RegistrationsService } from '../../core/registrations.service';
 
 @Component({
   selector: 'app-registrations',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationsComponent implements OnInit {
 
-  constructor() { }
+  registrations: any;
+  constructor(
+    private _rS: RegistrationsService
+  ) { }
 
   ngOnInit() {
+    this.registrations = this._rS.getAllRegistrations();
   }
 
 }

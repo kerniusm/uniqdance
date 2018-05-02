@@ -5,6 +5,7 @@ import { LoginComponent } from './admin/login/login.component';
 import { PostsComponent } from './admin/posts/posts.component';
 import { NewPostComponent } from './admin/new-post/new-post.component';
 import { BlogComponent } from './blog/blog.component';
+import { RegistrationsComponent } from './admin/registrations/registrations.component';
 import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'new-post/new', component: NewPostComponent},
   {path: 'new-post/:id', component: NewPostComponent},
   {path: 'naujienos', component: BlogComponent},
+  {path: 'registrations', component: RegistrationsComponent},
   {path: 'registration', component: RegistrationComponent}
 ];
 
