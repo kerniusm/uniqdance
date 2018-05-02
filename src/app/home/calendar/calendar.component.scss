@@ -1,0 +1,109 @@
+.schedule {
+
+	h1 {
+		font-weight: 400;
+		margin: 4rem 0;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		text-align: center;
+		font-size: 2.5rem;
+		font-family: inherit;
+		line-height: 1.2;
+		span {
+			border-bottom: 1px solid #000;
+		}
+	}
+
+    border-bottom: 1px solid #f38586;
+    
+    .register-form {
+        width: 512px;
+        height: 432px;
+        background-color: #f38586;
+        display: inline-block;
+        text-align: center;
+        padding-top: 55px;
+        position: relative;
+    }
+    
+    .btn-register {
+        border: 1px solid #fff;
+        background-color: #f38586;
+        color: #fff;
+        border-radius: 5px;
+        font-size: 11px;
+        letter-spacing: 1px;
+        box-sizing: border-box;
+        width: 139px;
+        margin-bottom: 13px;
+        height: 46px;
+        font-weight: 600;
+    }
+    
+    .vilnius, .from {
+        margin-right: 13px;
+    }
+    
+    .time {
+        width: 297px;
+        text-align: left;
+        padding-left: 37px;
+    }
+    
+    .description {
+        width: 297px;
+        height: 139px;
+        text-align: left;
+        padding-left: 37px;
+    }
+    
+    .btn-register:hover:not(.time) {
+        background-color: #fff;
+        color: #f38586;
+        cursor: pointer;
+    }
+    
+    .btn-register:focus {
+        background-color: #fff;
+        color: #f38586;
+        cursor: pointer;
+    }
+
+    &_register {
+        margin: 3rem 0 8rem 0;
+    }
+
+    &_datepicker {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.btn-flamingo {
+    background-color: #f38586;
+    color: #fff;
+    border-radius: 7px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 22px;
+    letter-spacing: 1px;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    line-height: 1.5;
+    transition: background-color .15s ease-in-out,
+    border-color .15s ease-in-out,
+    box-shadow .15s ease-in-out;
+}
+
+.btn-flamingo:hover:not(.time) {
+        background-color: #fff;
+        color: #f38586;
+        cursor: pointer;
+        border: 1px solid #f38586;
+    }

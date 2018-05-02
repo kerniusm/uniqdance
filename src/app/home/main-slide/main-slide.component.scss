@@ -1,0 +1,29 @@
+.main-slide {
+    background: url("assets/photos/slide-photo.jpg") 0 center;
+    background-size: cover;
+    height: 360px;
+    color: #fff;
+    text-transform: uppercase;
+    background-position: -60px 100%;
+
+    h1 {
+        margin: 230px 0 1rem 0;
+        letter-spacing: 3px;
+        text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+        border: none;
+        text-align: left;
+    }
+
+    .offset-lg-6 {
+        padding-left: 3rem;
+    }
+}
+@media (min-width: 500px) {
+  .main-slide {
+    height: 490px;
+    background-position: left center;
+      h1 {
+          margin: 20rem 0 1rem 0;
+      }
+  }
+}

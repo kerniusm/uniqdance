@@ -1,6 +1,6 @@
 .footer {
     background: #daebf1;
-    padding: 8rem;
+    padding: 2rem;
     position: relative;
 
     p {
@@ -15,8 +15,9 @@
   border: 2px solid #fff;
   position: absolute;
   right: 20px;
-  bottom: 20px;
-  background: transparent;
+  top: -22px;
+  box-shadow: 0 0 3px 1px #ddd;
+  background: #fff;
   text-decoration: none;
   text-align: center;
   line-height: 38px;
@@ -46,4 +47,9 @@
         padding-left: 2rem;
         border-left: 1px solid #000;
     }
+}
+@media (min-width: 768px) {
+  .footer {
+    padding: 8rem;
+  }
 }
