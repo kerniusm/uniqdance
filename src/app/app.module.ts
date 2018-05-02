@@ -31,6 +31,7 @@ import { BlogComponent } from './blog/blog.component';
 
 import { AuthService } from './core/auth.service';
 import { PostService } from './core/post.service';
+import { RegistrationsService } from './core/registrations.service';
 import { NewPostComponent } from './admin/new-post/new-post.component';
 
 
@@ -66,7 +67,7 @@ import { NewPostComponent } from './admin/new-post/new-post.component';
     NgbModule.forRoot(),
     ScrollToModule.forRoot()
   ],
-  providers: [AuthService, PostService],
+  providers: [AuthService, PostService, RegistrationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
