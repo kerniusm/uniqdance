@@ -3,44 +3,69 @@
 
 <section class="register-form">
     <div class="container">
-        <h3 class="text-center">Registruokis pirmai pamokai nemokamai!</h3>
-        <form id = "form1" #form1>
+        <h3 *ngIf="hide" class="text-center show">Registruokis pirmai pamokai nemokamai!</h3>
+        <h3 *ngIf="show" class="text-center hidden">Sėkmingai užsiregistravote!</h3>
+        <form id = "form1" #form1 [formGroup]="userForm">
             <div class="row">
                 <div class="col-12 col-sm-6">
                     <div class="form_col_left">
                         <label for="name">
-                            <input #inputName type="text" name="name" id="name" placeholder="Vardas">
+                            <input required #inputName type="text" formControlName="name" name="name" id="name" placeholder="Vardas">
                         </label>
+                        <div class="sm-text is-danger" *ngIf="formErrors.name">
+                            {{formErrors.name}}
+                        </div>
                         <label for="surname">
-                            <input #inputSurname type="text" name="surname" id="surname" placeholder="Pavardė">
+                            <input required #inputSurname type="text" formControlName="surname" name="surname" id="surname" placeholder="Pavardė">
                         </label>
+                        <div class="sm-text is-danger" *ngIf="formErrors.surname">
+                            {{formErrors.surname}}
+                        </div>
                         <label for="city">
-                            <input #inputCity type="text" name="city" id="city" placeholder="Miestas">
+                            <input required #inputCity type="text" formControlName="city" name="city" id="city" placeholder="Miestas">
                         </label>
+                        <div class="sm-text is-danger" *ngIf="formErrors.city">
+                            {{formErrors.city}}
+                        </div>
                         <label for="age">
-                            <input #inputAge type="number" name="age" id="age" placeholder="Amžius">
+                            <input required #inputAge type="number" formControlName="age" name="age" id="age" placeholder="Amžius">
                         </label>
+                        <div class="sm-text is-danger" *ngIf="formErrors.age">
+                            {{formErrors.age}}
+                        </div>
                         <label for="phone">
-                            <input #inputPhone type="text" name="phone" id="phone" placeholder="Telefono numeris">
+                            <input type="number" required #inputPhone formControlName="phone" name="phone" id="phone" placeholder="Telefono numeris">
                         </label>
+                        <div class="sm-text is-danger" *ngIf="formErrors.phone">
+                            {{formErrors.phone}}
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6">
                     <div class="form_col_right">
                         <label for="time">
-                            <input #inputTime type="text" name="time" id="time" placeholder="Užsiėmimo laikas">
+                            <input required #inputTime type="text" name="time" id="time" placeholder="Užsiėmimo laikas">
                         </label>
+                        <div class="sm-text is-danger" *ngIf="formErrors.time">
+                            {{formErrors.time}}
+                        </div>
                         <label for="email">
-                            <input #inputEmail type="email" name="email" id="inputEmail" placeholder="El.Paštas">
+                            <input required #inputEmail type="email" formControlName="email" name="email" id="inputEmail" placeholder="El.Paštas">
                         </label>
+                        <div class="sm-text is-danger" *ngIf="formErrors.email">
+                            {{formErrors.email}}
+                        </div>
                         <label for="message">
-                            <textarea #inputMessage type="text" name="message" id="inputNumber" placeholder="Žinutė"></textarea>
+                            <textarea #inputMessage type="text" formControlName="message" name="message" id="inputNumber" placeholder="Žinutė"></textarea>
                         </label>
+                        <div class="sm-text is-danger" *ngIf="formErrors.message">
+                            {{formErrors.message}}
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="text-center">
-                <button (click)="getInputValues(form1)" type="button" class="btn btn-flamingo">SIŲSTI</button>
+                <button (click)="getInputValues(form1)" [disabled]="!userForm.valid" type="submit" class="btn btn-flamingo">SIŲSTI</button>
             </div>
         </form>
     </div>
