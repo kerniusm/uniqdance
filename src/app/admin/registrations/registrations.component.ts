@@ -17,4 +17,8 @@ export class RegistrationsComponent implements OnInit {
     this.registrations = this._rS.getAllRegistrations();
   }
 
+  deleteReg(id) {
+    this._rS.deleteRegistration(id);
+  }
+
 }

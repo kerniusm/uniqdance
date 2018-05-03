@@ -33,6 +33,7 @@ import { AuthService } from './core/auth.service';
 import { PostService } from './core/post.service';
 import { RegistrationsService } from './core/registrations.service';
 import { NewPostComponent } from './admin/new-post/new-post.component';
+import { PostComponent } from './blog/post/post.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { NewPostComponent } from './admin/new-post/new-post.component';
     PricesComponent,
     NewsComponent,
     BlogComponent,
-    NewPostComponent
+    NewPostComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
