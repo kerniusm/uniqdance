@@ -1,3 +1,12 @@
-<p>
-  registrations works!
-</p>
+<div *ngFor="let registration of registrations | async">
+  <div class="registration-container">
+    <h2>{{ registration.surname }} {{ registration.name }}</h2>
+    <p>Reg.time: {{ registration.time }}</p>
+    <p>Reg.city: {{ registration.city }}</p>
+    <p>Age: {{ registration.age }}</p>
+    <p>Reg.message: {{ registration.message }}</p>
+    <p>Customer email: {{ registration.email }}</p>
+    <p>Customer phone: {{ registration.phone }}</p>
+    <button (click)="deleteReg(registration.registrationID)">Delete</button>
+  </div>
+</div>
