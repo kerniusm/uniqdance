@@ -34,6 +34,7 @@ import { PostService } from './core/post.service';
 import { RegistrationsService } from './core/registrations.service';
 import { NewPostComponent } from './admin/new-post/new-post.component';
 import { PostComponent } from './blog/post/post.component';
+import { AuthGuard } from './core/auth.guard';
 
 
 @NgModule({
@@ -69,7 +70,7 @@ import { PostComponent } from './blog/post/post.component';
     NgbModule.forRoot(),
     ScrollToModule.forRoot()
   ],
-  providers: [AuthService, PostService, RegistrationsService],
+  providers: [AuthService, PostService, RegistrationsService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

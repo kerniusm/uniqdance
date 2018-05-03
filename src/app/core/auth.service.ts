@@ -13,7 +13,7 @@ export class AuthService {
 
   user: any;
   loggedIn: boolean = false;
-  
+
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
