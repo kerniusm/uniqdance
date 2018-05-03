@@ -24,11 +24,13 @@
     "@ng-bootstrap/ng-bootstrap": "^1.1.2",
     "@nicky-lenaers/ngx-scroll-to": "^0.6.0",
     "angularfire2": "^5.0.0-rc.5-next",
+    "chrome": "^0.1.0",
     "core-js": "^2.4.1",
-    "ngx-bootstrap": "^2.0.4",
     "firebase": "^4.13.1",
+    "ngx-bootstrap": "^2.0.4",
     "npm": "^6.0.0",
     "rxjs": "^5.5.2",
+    "set-default-browser": "^1.0.1",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
