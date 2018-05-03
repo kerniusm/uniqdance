@@ -1,12 +1,38 @@
-<div *ngFor="let registration of registrations | async">
-  <div class="registration-container">
-    <h2>{{ registration.surname }} {{ registration.name }}</h2>
-    <p>Reg.time: {{ registration.time }}</p>
-    <p>Reg.city: {{ registration.city }}</p>
-    <p>Age: {{ registration.age }}</p>
-    <p>Reg.message: {{ registration.message }}</p>
-    <p>Customer email: {{ registration.email }}</p>
-    <p>Customer phone: {{ registration.phone }}</p>
-    <button (click)="deleteReg(registration.registrationID)">Delete</button>
+<section class="registrations admin-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="table-responsive">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Vardas</th>
+              <th scope="col">Laikas</th>
+              <th scope="col">Miestas</th>
+              <th scope="col">Amžius</th>
+              <th scope="col">El. paštas</th>
+              <th scope="col">Tel. numeris</th>
+              <th scope="col">Žinutė</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let registration of (registrations | async); let i = index">
+              <th scope="row">{{ i+1 }}</th>
+              <td>{{ registration.surname }} {{ registration.name }}</td>
+              <td>{{ registration.time }}</td>
+              <td>{{ registration.city }}</td>
+              <td>{{ registration.age }}</td>
+              <td>{{ registration.message }}</td>
+              <td>{{ registration.email }}</td>
+              <td>{{ registration.phone }}</td>
+              <td><button class="btn btn-sm" (click)="deleteReg(registration.registrationID)">Trinti</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
   </div>
-</div>
+</section>

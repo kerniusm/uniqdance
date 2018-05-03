@@ -11,11 +11,34 @@ import { AuthService } from '../../core/auth.service';
 export class NewPostComponent implements OnInit {
 
   id: string;
+  isNew: boolean = true;
   post: any = {
     title: '',
     text: '',
     photoURL: '',
-    slug: ''
+    slug: '',
+    status: ''
+  };
+
+  tinyMCESettings = {
+    height: 250,
+    plugins: [
+    "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak",
+    "searchreplace wordcount codesample visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+    "table contextmenu directionality emoticons template textcolor paste fullpage textcolor colorpicker textpattern"
+    ],
+    toolbar1: "bold italic underline strikethrough |styleselect formatselect fontselect fontsizeselect",
+    toolbar2: "cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor codesample image media code | insertdatetime preview | forecolor backcolor",
+    toolbar3: "table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | visualchars visualblocks nonbreaking template pagebreak restoredraft",
+    menubar: false,
+    toolbar_items_size: 'small',
+    resize:false,
+    skin_url: '/assets/tinymce/skins/lightgray',
+    baseURL: '/assets/tinymce',
+    theme_url: '/assets/tinymce/themes/modern/theme.min.js',
+    content_css: [
+      '/assets/plugins/codesample/css/prism.css'
+    ]
   };
 
   constructor(
@@ -27,6 +50,11 @@ export class NewPostComponent implements OnInit {
 
   ngOnInit() {
     this.id = this._aR.snapshot.params['id'];
+    this.isNew = true;
+    this._aR.queryParams.subscribe(params => {
+        this.isNew = params["new"];
+    });
+
     if (this.id) {
       this._pS.getOnePost(this.id).valueChanges().subscribe(post => {
         this.post = {
@@ -34,7 +62,8 @@ export class NewPostComponent implements OnInit {
           text: post.text,
           photoURL: post.photoURL,
           imageName: post.imageName,
-          slug: post.slug
+          slug: post.slug,
+          status: post.status
         };
       });
     } else {
@@ -45,12 +74,12 @@ export class NewPostComponent implements OnInit {
   createPost() {
     const post = {
       "title": this.post.title,
-      "imageURL": this.post.imageURL,
+      "photoURL": this.post.photoURL,
       "text": this.post.text,
       "slug": this.post.slug
     };
     this._pS.createPostPicture(post).then(post => {
-      return this.router.navigate(['/admin/post', post.id]);
+      return this.router.navigate(['/admin/post', post.id], {queryParams: {"new": true}});
     });
   }
 
@@ -58,7 +87,8 @@ export class NewPostComponent implements OnInit {
     const post = {
       "title": this.post.title,
       "text": this.post.text,
-      "slug": this.createSlug(this.post.title)
+      "slug": this.createSlug(this.post.title),
+      "status": this.post.status
     };
 
     this._pS.updatePost(post, this.id)

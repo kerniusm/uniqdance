@@ -42,7 +42,7 @@ export class PostService {
       const newPost = {
         'title': post.title,
         'text': post.text,
-        'photoURL': post.imageURL,
+        'photoURL': post.photoURL,
         'slug': post.slug,
         'status': 'draft',
         "created_at": new Date().getTime(),
@@ -91,7 +91,8 @@ export class PostService {
     return this.getOnePost(id).update({
       'title': post.title,
       'text': post.text,
-      'slug': post.slug
+      'slug': post.slug,
+      'status': post.status
     });
   }
 

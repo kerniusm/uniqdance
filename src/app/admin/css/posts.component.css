@@ -1,0 +1,18 @@
+.post {
+  border-bottom: 1px solid #ddd;
+  margin: 10px 0 30px 0;
+}
+
+.posts-list {
+  margin-top: 40px;
+}
+
+.filters a {
+  text-decoration: underline;
+  color: #000;
+}
+
+.filters a.active {
+  text-decoration: none;
+  color: #f38586;
+}

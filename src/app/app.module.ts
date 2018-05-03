@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { TinyMceModule, tinymceDefaultSettings } from 'angular-tinymce';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -68,7 +68,8 @@ import { AuthGuard } from './core/auth.guard';
     FormsModule,
     ReactiveFormsModule,
     NgbModule.forRoot(),
-    ScrollToModule.forRoot()
+    ScrollToModule.forRoot(),
+    TinyMceModule.forRoot(tinymceDefaultSettings())
   ],
   providers: [AuthService, PostService, RegistrationsService, AuthGuard],
   bootstrap: [AppComponent]
