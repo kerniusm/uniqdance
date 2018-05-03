@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../../core/post.service';
+import { SlicePipe } from '@angular/common';
 
 @Component({
   selector: 'app-posts',

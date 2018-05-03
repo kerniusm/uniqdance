@@ -1,6 +1,14 @@
 /* Logo */
 .header {
-  max-width: 1040px;
+  &.admin {
+    padding: 20px 0;
+    .navbar {
+      padding: 0;
+    }
+    .navbar-collapse {
+      justify-content: flex-end;
+    }
+  }
 }
 
 .navbar-brand {
