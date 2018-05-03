@@ -14,7 +14,7 @@ export class NewPostComponent implements OnInit {
   post: any = {
     title: '',
     text: '',
-    imageURL: '',
+    photoURL: '',
     slug: ''
   };
 
@@ -32,7 +32,8 @@ export class NewPostComponent implements OnInit {
         this.post = {
           title: post.title,
           text: post.text,
-          imageURL: post.imageURL,
+          photoURL: post.photoURL,
+          imageName: post.imageName,
           slug: post.slug
         };
       });
@@ -42,25 +43,42 @@ export class NewPostComponent implements OnInit {
   }
 
   createPost() {
-    this._authS.user.subscribe(user => {
-      this._pS.createPostPicture(user.uid, this.post.title, this.post.imageURL, this.post.text, this.post.slug).then(post => {
-        return this.router.navigate(['/posts']);
-      });
+    const post = {
+      "title": this.post.title,
+      "imageURL": this.post.imageURL,
+      "text": this.post.text,
+      "slug": this.post.slug
+    };
+    this._pS.createPostPicture(post).then(post => {
+      return this.router.navigate(['/admin/post', post.id]);
     });
   }
 
   updatePost() {
-    this._pS.updatePost(this.id, this.post.title, this.post.imageURL, this.post.text, this.post.slug)
+    const post = {
+      "title": this.post.title,
+      "text": this.post.text,
+      "slug": this.createSlug(this.post.title)
+    };
+
+    this._pS.updatePost(post, this.id)
     .then(
-      user => this.router.navigate(['/posts'])
+      user => this.router.navigate(['/admin/posts'])
+    );
+  }
+
+  deletePost() {
+    this._pS.softDeletePost(this.id)
+    .then(
+      () => this.router.navigate(['/admin/posts'])
     );
   }
 
   createSlug(title){
     let str = title.replace("-");
-    str = str.toLowerCase;
+    str = str.toLowerCase();
     str = str.replace(/[^A-Z0-9]+/ig, "-");
-    return str;
+    return str +'-'+ new Date().getTime();
   }
 
   detectFile(event: Event) {

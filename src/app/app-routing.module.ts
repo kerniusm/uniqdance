@@ -11,12 +11,12 @@ import { RegistrationComponent } from './registration/registration.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'posts', component: PostsComponent},
-  {path: 'new-post/:id', component: NewPostComponent},
-  {path: 'new-post', component: NewPostComponent},
+  {path: 'admin/posts', component: PostsComponent},
+  {path: 'admin/post/:id', component: NewPostComponent},
+  {path: 'admin/post', component: NewPostComponent},
   {path: 'naujienos', component: BlogComponent},
-  {path: 'registrations', component: RegistrationsComponent},
-  {path: 'registration', component: RegistrationComponent}
+  {path: 'admin/registrations', component: RegistrationsComponent},
+  {path: 'registracija', component: RegistrationComponent}
 ];
 
 @NgModule({

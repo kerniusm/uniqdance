@@ -4,6 +4,7 @@
 }
 .upload-area {
   background-color: #fafafa;
+  background-position: center;
   text-align: center;
   padding: 40px 0;
   cursor: pointer;
@@ -11,8 +12,9 @@
   transition: 250ms;
   min-height: 150px;
   display: flex;
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   .icon {
     color: #989898;
     background-image: url('/assets/img/ic_add_a_photo_black_24px.svg');
@@ -29,15 +31,18 @@
     border: none;
     background-size: cover;
     border-radius: 4px;
-    .btn {
-      margin-left: 10px;
+    .btn-delete {
+      position: absolute;
+      right: -10px;
+      bottom: -35px;
+      font-size: 14px;
+      color: #000;
     }
-    .icon, .btn {
+    .icon {
       display: none;
     }
-    &:hover .icon, &:hover .btn {
+    &:hover .icon {
       display: block;
-      color: #fff;
     }
   }
 }

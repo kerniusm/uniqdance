@@ -38,18 +38,17 @@ export class PostService {
     );
   }
 
-  createPostPicture(uid, header, photoURL, text, slug) {
-      const picture = {
-        "user_uid": uid,
-        'title': header,
-        'text': text,
-        'photoURL': photoURL,
-        'slug': slug,
+  createPostPicture(post) {
+      const newPost = {
+        'title': post.title,
+        'text': post.text,
+        'photoURL': post.imageURL,
+        'slug': post.slug,
         'status': 'draft',
         "created_at": new Date().getTime(),
         "updated_at": new Date().getTime()
       };
-      return this.afs.collection('posts').add(picture);
+      return this.afs.collection('posts').add(newPost);
   }
 
   deletePhoto(id: string, pictureName: string) {
@@ -68,6 +67,10 @@ export class PostService {
     this.getOnePost(id).update(upload);
   }
 
+  softDeletePost(id: string) {
+    return this.getOnePost(id).update({"status": "deleted"});
+  }
+
   addPost(header, photoURL, text, slug) {
     const post = {
       'posted_on': new Date().getTime(),
@@ -84,12 +87,11 @@ export class PostService {
     return this.afs.doc<any>(`posts/${id}`);
   }
 
-  updatePost(id, header, text, photoURL, slug) {
+  updatePost(post, id) {
     return this.getOnePost(id).update({
-      'title': header,
-      'text': photoURL,
-      'photoURL': text,
-      'slug': slug,
+      'title': post.title,
+      'text': post.text,
+      'slug': post.slug
     });
   }
 

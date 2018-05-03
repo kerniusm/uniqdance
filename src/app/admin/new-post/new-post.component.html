@@ -1,7 +1,6 @@
 <section class="new-post admin-section">
   <div class="container">
-    <h3 *ngIf="!id">Naujas įrašas</h3>
-    <h3 *ngIf="id">Redaguoti įrašą</h3>
+    <h3>Redaguoti įrašą</h3>
     <form>
       <div class="form-group">
         <input [(ngModel)]="post.title" name="post-header" class="form-control" type="text" placeholder="Antraštė">
@@ -10,15 +9,15 @@
         <textarea [(ngModel)]="post.text" name="post-text" class="form-control" cols="30" rows="10" placeholder="Tekstas"></textarea>
       </div>
       <div class="form-group">
-        <div class="upload-area" [class.bg-active]="(post?.imageURL)" (click)="fileUpload.click()" [ngStyle]="post?.imageURL && {'background-image': 'url('+ post.imageURL +')'}">
+        <div class="upload-area" [class.bg-active]="(post?.photoURL)" (click)="fileUpload.click()" [ngStyle]="post?.photoURL && {'background-image': 'url('+ post.photoURL +')'}">
           <span class="icon"></span>
-          <a class="btn" (click)="deletePhoto($event)" *ngIf="(post?.imageURL)"><div>delete</div></a>
+          <a class="btn btn-delete" (click)="deletePhoto($event)" *ngIf="(post?.photoURL)"><div>Trinti</div></a>
         </div>
         <input type="file" #fileUpload (change)="detectFile($event)" class="hidden-from-screen">
       </div>
       <div class="form-group">
-        <button *ngIf="!id" (click)="createPost()" class="btn btn-primary">Saugoti</button>
-        <button *ngIf="id" (click)="updatePost()" class="btn btn-primary">Saugoti</button>
+        <button (click)="updatePost()" class="btn btn-primary">Saugoti</button>
+        <button (click)="deletePost()" class="btn btn-outline-secondary">Trinti</button>
       </div>
     </form>
   </div>

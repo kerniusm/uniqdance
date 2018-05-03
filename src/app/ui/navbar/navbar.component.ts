@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/auth.service';
 import { Router } from '@angular/router';
 
@@ -20,10 +20,10 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (window.location.pathname === '/') {
-      this.hideAdminMenu = true;
-    } else {
+    if (location.pathname.split('/')[1] === 'admin') {
       this.hideAdminMenu = false;
+    } else {
+      this.hideAdminMenu = true;
     }
   }
 
