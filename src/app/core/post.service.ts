@@ -99,8 +99,8 @@ export class PostService {
       return this.getOnePost(id).update({"status": "active"});
   }
 
-  getAllPosts() {
-    return this.afs.collection('posts', ref => ref.orderBy('created_at', 'desc')).snapshotChanges()
+  getAllPosts(status = 'published') {
+    return this.afs.collection('posts', ref => ref.where('status', '==', status).orderBy('created_at', 'desc')).snapshotChanges()
     .map(result => {
       return result.map(resu => {
         const data = resu.payload.doc.data();
@@ -115,7 +115,7 @@ export class PostService {
       });
     });
   }
-  
+
   getAllPostsForUI() {
     return this.afs.collection('posts', ref => ref.where('status', '==', 'published').orderBy('created_at', 'desc')).snapshotChanges()
     .map(result => {
