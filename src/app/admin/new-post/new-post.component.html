@@ -1,9 +1,25 @@
-<a [routerLink]="['../../posts']">BACK</a>
-<div class="container" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-  <input [(ngModel)]="post.postHeader" type="text" placeholder="header">
-  <input [(ngModel)]="post.postImgUrl" type="text" placeholder="img url">
-  <textarea  [(ngModel)]="post.postText" cols="30" rows="10" placeholder="text"></textarea>
-  <button *ngIf="!id" (click)="createPost()">submit</button>
-  <button *ngIf="id" (click)="updatePost()">update</button>
-  <span>{{ message }}</span>
-</div>
+<section class="new-post admin-section">
+  <div class="container">
+    <h3 *ngIf="!id">Naujas įrašas</h3>
+    <h3 *ngIf="id">Redaguoti įrašą</h3>
+    <form>
+      <div class="form-group">
+        <input [(ngModel)]="post.title" name="post-header" class="form-control" type="text" placeholder="Antraštė">
+      </div>
+      <div class="form-group">
+        <textarea [(ngModel)]="post.text" name="post-text" class="form-control" cols="30" rows="10" placeholder="Tekstas"></textarea>
+      </div>
+      <div class="form-group">
+        <div class="upload-area" [class.bg-active]="(post?.imageURL)" (click)="fileUpload.click()" [ngStyle]="post?.imageURL && {'background-image': 'url('+ post.imageURL +')'}">
+          <span class="icon"></span>
+          <a class="btn" (click)="deletePhoto($event)" *ngIf="(post?.imageURL)"><div>delete</div></a>
+        </div>
+        <input type="file" #fileUpload (change)="detectFile($event)" class="hidden-from-screen">
+      </div>
+      <div class="form-group">
+        <button *ngIf="!id" (click)="createPost()" class="btn btn-primary">Saugoti</button>
+        <button *ngIf="id" (click)="updatePost()" class="btn btn-primary">Saugoti</button>
+      </div>
+    </form>
+  </div>
+</section>

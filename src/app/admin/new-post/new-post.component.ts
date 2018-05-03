@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../../core/post.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../core/auth.service';
 
 @Component({
   selector: 'app-new-post',
@@ -9,17 +10,19 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class NewPostComponent implements OnInit {
 
-  message: string;
   id: string;
   post: any = {
-    postHeader: '',
-    postText: '',
-    postImgUrl: ''
+    title: '',
+    text: '',
+    imageURL: '',
+    slug: ''
   };
 
   constructor(
     private _pS: PostService,
-    private _aR: ActivatedRoute
+    private _aR: ActivatedRoute,
+    private _authS: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -27,25 +30,54 @@ export class NewPostComponent implements OnInit {
     if (this.id) {
       this._pS.getOnePost(this.id).valueChanges().subscribe(post => {
         this.post = {
-          postHeader: post.post_header,
-          postText: post.post_text,
-          postImgUrl: post.photoURL
+          title: post.title,
+          text: post.text,
+          imageURL: post.imageURL,
+          slug: post.slug
         };
       });
+    } else {
+      this.createPost();
     }
   }
 
   createPost() {
-    this._pS.addPost(this.post.postHeader, this.post.postImgUrl, this.post.postText);
-    this.message = 'Post added';
-    this.post.postHeader = '';
-    this.post.postImgUrl = '';
-    this.post.postText = '';
+    this._authS.user.subscribe(user => {
+      this._pS.createPostPicture(user.uid, this.post.title, this.post.imageURL, this.post.text, this.post.slug).then(post => {
+        return this.router.navigate(['/posts']);
+      });
+    });
   }
 
   updatePost() {
-    this._pS.updatePost(this.id, this.post.postHeader, this.post.postImgUrl, this.post.postText);
-    this.message = 'Post updated';
+    this._pS.updatePost(this.id, this.post.title, this.post.imageURL, this.post.text, this.post.slug)
+    .then(
+      user => this.router.navigate(['/posts'])
+    );
+  }
+
+  createSlug(title){
+    let str = title.replace("-");
+    str = str.toLowerCase;
+    str = str.replace(/[^A-Z0-9]+/ig, "-");
+    return str;
+  }
+
+  detectFile(event: Event) {
+    const selectFile = (event.target as HTMLInputElement).files;
+    const files = selectFile;
+
+    if (!files || files.length === 0) {
+      console.warn('No files found');
+      return;
+    }
+    this._pS.uploadPicture(files[0], this.id);
+    event.target['value'] = "";
+  }
+
+  deletePhoto(event: any) {
+    event.stopPropagation();
+    this._pS.deletePhoto(this.id, this.post.imageName);
   }
 
 }

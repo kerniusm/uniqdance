@@ -1,12 +1,26 @@
-<p>
-  posts works!
-</p>
-<div *ngFor="let post of posts | async">
-  <div style="border: solid black 1px;">
-    {{post.postHeader}}
-    {{post.postText}}
-    <a [routerLink]="['../new-post', post.id]">{{post.photoURL}}</a>
-    ID - {{post.id}}
+<section class="news admin-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Blogo įrašai</h3>
+      </div>
+      <div class="col-sm-6 text-right">
+        <a [routerLink]="['../new-post']" class="btn btn-sm btn-primary">Naujas įrašas</a>
+      </div>
+    </div>
+    <div class="row" *ngFor="let post of posts | async">
+      <div class="col-md-12">
+        <div class="post">
+          <h5 class="post-title">{{post.title}}</h5>
+          <p><a [routerLink]="['../new-post', post.id]" role="button">Redaguoti</a></p>
+          <p>{{post.text | slice:1:300}} ...</p>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="(posts| async)?.length === 0">
+      <div class="col-md-12">
+        <p>Įrašų nėra</p>
+      </div>
+    </div>
   </div>
-</div>
-<a [routerLink]="['../new-post', 'new']">CREATE NEW POST</a>
+</section>
