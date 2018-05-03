@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -15,7 +15,8 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private _authS: AuthService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {
   }
 
@@ -35,4 +36,7 @@ export class NavbarComponent implements OnInit {
     this.dropdownToggled = !this.dropdownToggled;
   }
 
+  signOut() {
+    this._authS.logout();
+  }
 }
