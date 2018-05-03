@@ -114,4 +114,20 @@ export class PostService {
     });
   }
 
+  getAllPostsForUI() {
+    return this.afs.collection('posts', ref => ref.where('status', '==', 'published').orderBy('created_at', 'desc')).snapshotChanges()
+    .map(result => {
+      return result.map(resu => {
+        const data = resu.payload.doc.data();
+        return {
+          id: resu.payload.doc.id,
+          title: data.title,
+          text: data.text,
+          photoURL: data.photoURL,
+          slug: data.slug
+        };
+      });
+    });
+  }
+
 }
