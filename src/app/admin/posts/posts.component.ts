@@ -9,14 +9,20 @@ import { SlicePipe } from '@angular/common';
 })
 export class PostsComponent implements OnInit {
 
-
   posts: any;
+  filterActived: string = 'published';
+
   constructor(
     private _pS: PostService
   ) { }
 
   ngOnInit() {
-    this.posts = this._pS.getAllPosts();
+    this.posts = this._pS.getAllPosts('published');
+  }
+
+  getPostsByStatus(status) {
+    this.filterActived  = status;
+    this.posts = this._pS.getAllPosts(status);
   }
 
 }

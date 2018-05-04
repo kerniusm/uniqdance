@@ -4,8 +4,8 @@
       <div class="col-sm-6">
         <h3>Blogo įrašai</h3>
         <div class="filters">
-          <a [routerLink]="">Juodraščiai</a> |
-          <a [routerLink]="">Publikuoti</a>
+          <a [routerLink]="" [ngClass]="{'active': filterActived === 'published'}" (click)="getPostsByStatus('published')">Publikuoti</a> |
+          <a [routerLink]="" [ngClass]="{'active': filterActived === 'draft'}" (click)="getPostsByStatus('draft')">Juodraščiai</a>
         </div>
       </div>
       <div class="col-sm-6 text-right">

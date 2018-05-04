@@ -34,12 +34,16 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private _aS: AuthService,
+    private _authS: AuthService,
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.buildForm();
+    if (!this._authS.loggedIn) {
+      this.buildForm();
+    } else {
+      this.router.navigate(['/admin/registrations']);
+    }
   }
 
   buildForm() {
@@ -87,9 +91,9 @@ export class LoginComponent implements OnInit {
   }
 
   signIn() {
-    this._aS.emailSignIn(this.userForm.value['email'], this.userForm.value['password'])
+    this._authS.emailSignIn(this.userForm.value['email'], this.userForm.value['password'])
     .then(
-      user => this.router.navigate(['/admin/posts'])
+      user => this.router.navigate(['/admin/registrations'])
     );
   }
 

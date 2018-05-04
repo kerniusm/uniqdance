@@ -1,12 +1,13 @@
 <section class="new-post admin-section">
   <div class="container">
-    <h3>Redaguoti įrašą</h3>
+    <h3 *ngIf="isNew">Naujas įrašas</h3>
+    <h3 *ngIf="!isNew">Redaguoti įrašą</h3>
     <form>
       <div class="form-group">
         <input [(ngModel)]="post.title" name="post-header" class="form-control" type="text" placeholder="Antraštė">
       </div>
       <div class="form-group">
-        <textarea [(ngModel)]="post.text" name="post-text" class="form-control" cols="30" rows="10" placeholder="Tekstas"></textarea>
+        <angular-tinymce name="post-text" [(ngModel)]="post.text" [settings]='tinyMCESettings'></angular-tinymce>
       </div>
       <div class="form-group">
         <div class="upload-area" [class.bg-active]="(post?.photoURL)" (click)="fileUpload.click()" [ngStyle]="post?.photoURL && {'background-image': 'url('+ post.photoURL +')'}">
@@ -16,8 +17,18 @@
         <input type="file" #fileUpload (change)="detectFile($event)" class="hidden-from-screen">
       </div>
       <div class="form-group">
-        <button (click)="updatePost()" class="btn btn-primary">Saugoti</button>
-        <button (click)="deletePost()" class="btn btn-outline-secondary">Trinti</button>
+        <label for="">Būsena</label>
+        <select class="form-control" name="post-status" [(ngModel)]="post.status">
+          <option value="draft" [selected]="post.status === draft">Juodraštis</option>
+          <option value="published" [selected]="post.status === published">Publikuotas</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button (click)="updatePost()" class="btn btn-primary">
+          <span *ngIf="isNew">Paskelbti</span>
+          <span *ngIf="!isNew">Saugoti</span>
+        </button>
+        <button (click)="deletePost()" *ngIf="!isNew" class="btn btn-outline-secondary">Trinti</button>
       </div>
     </form>
   </div>

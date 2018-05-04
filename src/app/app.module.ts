@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { TinyMceModule, tinymceDefaultSettings } from 'angular-tinymce';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -34,6 +34,7 @@ import { PostService } from './core/post.service';
 import { RegistrationsService } from './core/registrations.service';
 import { NewPostComponent } from './admin/new-post/new-post.component';
 import { PostComponent } from './blog/post/post.component';
+import { AuthGuard } from './core/auth.guard';
 
 
 @NgModule({
@@ -67,9 +68,10 @@ import { PostComponent } from './blog/post/post.component';
     FormsModule,
     ReactiveFormsModule,
     NgbModule.forRoot(),
-    ScrollToModule.forRoot()
+    ScrollToModule.forRoot(),
+    TinyMceModule.forRoot(tinymceDefaultSettings())
   ],
-  providers: [AuthService, PostService, RegistrationsService],
+  providers: [AuthService, PostService, RegistrationsService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
