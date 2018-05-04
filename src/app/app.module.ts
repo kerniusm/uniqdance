@@ -34,8 +34,9 @@ import { PostService } from './core/post.service';
 import { RegistrationsService } from './core/registrations.service';
 import { NewPostComponent } from './admin/new-post/new-post.component';
 import { PostComponent } from './blog/post/post.component';
+import { SliderComponent } from './admin/slider/slider.component';
 import { AuthGuard } from './core/auth.guard';
-
+import { SliderService } from './core/slider.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { AuthGuard } from './core/auth.guard';
     NewsComponent,
     BlogComponent,
     NewPostComponent,
-    PostComponent
+    PostComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +73,7 @@ import { AuthGuard } from './core/auth.guard';
     ScrollToModule.forRoot(),
     TinyMceModule.forRoot(tinymceDefaultSettings())
   ],
-  providers: [AuthService, PostService, RegistrationsService, AuthGuard],
+  providers: [AuthService, PostService, RegistrationsService, AuthGuard, SliderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
