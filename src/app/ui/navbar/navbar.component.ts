@@ -23,7 +23,6 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
           if (event.url.split('/')[1] === 'admin') {
