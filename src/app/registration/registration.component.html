@@ -46,9 +46,6 @@
                         <label for="time">
                             <input required #inputTime type="text" name="time" id="time" placeholder="Užsiėmimo laikas">
                         </label>
-                        <div class="sm-text is-danger" *ngIf="formErrors.time">
-                            {{formErrors.time}}
-                        </div>
                         <label for="email">
                             <input required #inputEmail type="email" formControlName="email" name="email" id="inputEmail" placeholder="El.Paštas">
                         </label>

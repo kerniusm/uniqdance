@@ -19,8 +19,8 @@
       <div class="form-group">
         <label for="">Būsena</label>
         <select class="form-control" name="post-status" [(ngModel)]="post.status">
-          <option value="draft" [selected]="post.status === draft">Juodraštis</option>
-          <option value="published" [selected]="post.status === published">Publikuotas</option>
+          <option value="draft" [selected]="post.status === 'draft'">Juodraštis</option>
+          <option value="published" [selected]="post.status === 'published'">Publikuotas</option>
         </select>
       </div>
       <div class="form-group">

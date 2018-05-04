@@ -1,0 +1,39 @@
+.first-lesson {
+    border-top: 1px solid #f38586;
+    border-bottom: 1px solid #f38586;
+    padding: 3rem;
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h3 {
+        color: #f38586;
+        margin: 0 2rem 0 0;
+    }
+}
+/* Swiper slider */
+.swiper-container {
+    height: 50vh;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.swiper-slide img {
+    height: 100%;
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+    filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+}
+
+.swiper-slide.swiper-slide-next img {
+    /* Disable grayscale for center item */
+    -webkit-filter: grayscale(0);
+    filter: none;
+}

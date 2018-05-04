@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot):Observable<boolean>{
-    return this.afAuth.authState.map((user)=>{
+    return this.afAuth.authState.map((user) => {
       if (user != null) {
         return true;
       } else {
