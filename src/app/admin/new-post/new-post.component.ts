@@ -106,7 +106,9 @@ export class NewPostComponent implements OnInit {
 
   createSlug(title){
     let str = title.replace("-");
+    let combining = /[\u0300-\u036F]/g;
     str = str.toLowerCase();
+    str = str.normalize('NFKD').replace(combining, '');
     str = str.replace(/[^A-Z0-9]+/ig, "-");
     return str +'-'+ new Date().getTime();
   }
@@ -119,7 +121,7 @@ export class NewPostComponent implements OnInit {
       console.warn('No files found');
       return;
     }
-    this._pS.uploadPicture(files[0], this.id);
+    this._pS.uploadPicture(files[0], this.id, this.post);
     event.target['value'] = "";
   }
 

@@ -11,7 +11,7 @@ export class PostService {
     private afs: AngularFirestore
   ) { }
 
-  uploadPicture(upload, id) {
+  uploadPicture(upload, id, post) {
     const storageRef = firebase.storage().ref();
     const imageName = new Date().getTime();
     const uploadTask = storageRef.child(`posts/${imageName}`).put(upload);
@@ -29,7 +29,7 @@ export class PostService {
             photoURL: uploadTask.snapshot.downloadURL,
             imageName: imageName
           }
-          this.updatePicture(newPicture, id);
+          this.updatePicture(newPicture, id, post);
           return;
         } else {
           console.log('File not uploaded')
@@ -63,8 +63,10 @@ export class PostService {
     );
   }
 
-  private updatePicture(upload, id) {
-    this.getOnePost(id).update(upload);
+  private updatePicture(upload, id, post) {
+    post.photoURL = upload.photoURL;
+    post.imageName = upload.imageName;
+    this.getOnePost(id).update(post);
   }
 
   softDeletePost(id: string) {
