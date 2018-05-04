@@ -34,6 +34,7 @@ import { PostService } from './core/post.service';
 import { RegistrationsService } from './core/registrations.service';
 import { NewPostComponent } from './admin/new-post/new-post.component';
 import { PostComponent } from './blog/post/post.component';
+import { SliderComponent } from './admin/slider/slider.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { PostComponent } from './blog/post/post.component';
     NewsComponent,
     BlogComponent,
     NewPostComponent,
-    PostComponent
+    PostComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,

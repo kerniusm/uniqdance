@@ -1,0 +1,71 @@
+.new-post {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.upload-area {
+  background-color: #fafafa;
+  background-position: center;
+  text-align: center;
+  padding: 40px 0;
+  cursor: pointer;
+  border: 2px dashed #ddd;
+  transition: 250ms;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  .icon {
+    color: #989898;
+    background-image: url('/assets/img/ic_add_a_photo_black_24px.svg');
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    opacity: .6;
+    background-position: center;
+  }
+  &:hover {
+    border-color: #989898;
+  }
+  &.bg-active {
+    border: none;
+    background-size: cover;
+    border-radius: 4px;
+    .btn-delete {
+      position: absolute;
+      right: -10px;
+      bottom: -35px;
+      font-size: 14px;
+      color: #000;
+    }
+    .icon {
+      display: none;
+    }
+    &:hover .icon {
+      display: block;
+    }
+  }
+}
+
+.all-elements {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .element {
+    list-style-type: none;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    .image {
+      width: 10rem;
+      height: 10rem;
+      border: 2px dashed #ddd;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .del {
+      width: 4rem;
+    }
+  }
+}

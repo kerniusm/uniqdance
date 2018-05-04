@@ -1,0 +1,40 @@
+<section class="new-post admin-section">
+  <div class="container">
+    <h3>Įkelti nuotrauką</h3>
+    <form>
+      <div class="form-group">
+        <div class="upload-area" [class.bg-active]="(post?.photoURL)" (click)="fileUpload.click()" [ngStyle]="post?.photoURL && {'background-image': 'url('+ post.photoURL +')'}">
+          <span class="icon"></span>
+          <a class="btn btn-delete" (click)="deletePhoto($event)" *ngIf="(post?.photoURL)"><div>Trinti</div></a>
+        </div>
+        <input type="file" #fileUpload (change)="detectFile($event)" class="hidden-from-screen">
+      </div>
+      <div class="form-group">
+        <button (click)="updatePost()" class="btn btn-primary">Saugoti</button>
+        <button (click)="deletePost()" class="btn btn-outline-secondary del">Trinti</button>
+      </div>
+    </form>
+  <ul class="all-elements">
+  	<li class="element">
+  		<img class="image" src="https://pamgrout.files.wordpress.com/2013/08/71c77-dancing-queen-lg.gif" alt="img">
+  		<button (click)="deletePost()" class="btn btn-outline-secondary del">Trinti</button>
+  	</li>
+  	<li class="element">
+  		<img class="image" src="https://pamgrout.files.wordpress.com/2013/08/71c77-dancing-queen-lg.gif" alt="img">
+  		<button (click)="deletePost()" class="btn btn-outline-secondary del">Trinti</button>
+  	</li>
+  	<li class="element">
+  		<img class="image" src="https://pamgrout.files.wordpress.com/2013/08/71c77-dancing-queen-lg.gif" alt="img">
+  		<button (click)="deletePost()" class="btn btn-outline-secondary del">Trinti</button>
+  	</li>
+  	<li class="element">
+  		<img class="image" src="https://pamgrout.files.wordpress.com/2013/08/71c77-dancing-queen-lg.gif" alt="img">
+  		<button (click)="deletePost()" class="btn btn-outline-secondary del">Trinti</button>
+  	</li>
+  	<li class="element">
+  		<img class="image" src="https://pamgrout.files.wordpress.com/2013/08/71c77-dancing-queen-lg.gif" alt="img">
+  		<button (click)="deletePost()" class="btn btn-outline-secondary del">Trinti</button>
+  	</li>
+  </ul>
+  </div>
+</section>
