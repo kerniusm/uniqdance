@@ -1,3 +1,11 @@
-<p>
-  post works!
-</p>
+<div class="container">
+  <div class="row">
+      <div class="col-sm-8 single_post">
+        <div class="post" *ngIf="post">
+          <h3 class="post-title">{{ post.title }}</h3>
+          <img class="post-image" src="{{post.photoURL}}" alt="">
+          <p innerHtml="{{ post.text }}"></p>
+        </div>
+      </div>
+  </div>
+</div>
