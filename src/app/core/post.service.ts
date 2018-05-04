@@ -87,6 +87,10 @@ export class PostService {
     return this.afs.doc<any>(`posts/${id}`);
   }
 
+  getOnePostBySlug(slug) {
+    return this.afs.collection('posts', ref => ref.where('slug', '==', `${slug}`)).valueChanges();
+  }
+
   updatePost(post, id) {
     return this.getOnePost(id).update({
       'title': post.title,
