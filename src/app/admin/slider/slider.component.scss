@@ -1,4 +1,4 @@
-.new-post {
+.slider-images {
   max-width: 600px;
   margin: 0 auto;
 }
@@ -51,21 +51,20 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 0;
   .element {
     list-style-type: none;
-    margin-right: 0.5rem;
     margin-bottom: 0.5rem;
     display: flex;
     flex-direction: column;
     .image {
-      width: 10rem;
+      width: 100%;
       height: 10rem;
-      border: 2px dashed #ddd;
       display: block;
       margin-bottom: 0.2rem;
       object-fit: cover;
     }
-    .del {
+    .btn-del {
       width: 4rem;
     }
   }
