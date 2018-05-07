@@ -10,8 +10,7 @@ export class SliderService {
   uploadPicture(upload) {
     const storageRef = firebase.storage().ref();
     const imageName = new Date().getTime();
-
-    const uploadTask = storageRef.child(`slider/${imageName}`).put(upload);
+	const uploadTask = storageRef.child(`slider/${imageName}`).put(upload);
 
     uploadTask.on(
       firebase.storage.TaskEvent.STATE_CHANGED,
@@ -41,35 +40,32 @@ export class SliderService {
     console.log('accomplished');
   }
 
-  getPictures() {
-    return this.afs
-      .collection('sliderPictures', ref => ref.orderBy('imageName', 'desc'))
-      .snapshotChanges()
-      .map(result =>
-        result.map(resu => {
-          const data = resu.payload.doc.data();
-          return {
-            id: resu.payload.doc.id,
-            photoURL: data.photoURL,
-            name: data.imageName
-          };
-        })
-      );
-  }
+	getPictures() {
+		return this.afs.collection('sliderPictures', ref => 
+			ref.orderBy('imageName', 'desc')).snapshotChanges().map(result => result.map(resu => 
+			{
+				const data = resu.payload.doc.data();
+				return {
+					id : resu.payload.doc.id,
+					photoURL : data.photoURL,
+					name : data.imageName
+				}
+			}
+		))
+	}
+
+	deleteImage(id, name) {
+		return this.afs.doc<any>(`sliderPictures/${id}`).delete().then(
+			() => { 
+				const storageRef = firebase.storage().ref();
+				storageRef.child(`slider/${name}`).delete();
+			}
+		);
+	}
 
   getPicturesForUI() {
     return this.afs
       .collection('sliderPictures', ref => ref.orderBy('imageName', 'desc'))
       .valueChanges();
-  }
-
-  deleteImage(id, name) {
-    return this.afs
-      .doc<any>(`sliderPictures/${id}`)
-      .delete()
-      .then(() => {
-        const storageRef = firebase.storage().ref();
-        storageRef.child(`slider/${name}`).delete();
-      });
-  }
+  }  
 }
