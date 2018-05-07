@@ -33,6 +33,7 @@ export class RegistrationsService {
       return result.map(resu => {
         const data = resu.payload.doc.data();
         return {
+          registrated_on: data.registrated_on,
           registrationID: resu.payload.doc.id,
           name: data.name,
           surname: data.surname,

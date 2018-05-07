@@ -7,19 +7,21 @@
           <thead class="thead-dark">
             <tr>
               <th scope="col">#</th>
+              <th scope="col">Reg. data</th>
               <th scope="col">Vardas</th>
               <th scope="col">Laikas</th>
               <th scope="col">Miestas</th>
               <th scope="col">Amžius</th>
-              <th scope="col">El. paštas</th>
-              <th scope="col">Tel. numeris</th>
               <th scope="col">Žinutė</th>
+              <th scope="col">El. paštas</th>
+              <th scope="col">Tel. nr.</th>
               <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let registration of (registrations | async); let i = index">
               <th scope="row">{{ i+1 }}</th>
+              <td>{{ registration.registrated_on | date:'yyyy/MM/dd' }}</td>
               <td>{{ registration.surname }} {{ registration.name }}</td>
               <td>{{ registration.time }}</td>
               <td>{{ registration.city }}</td>
