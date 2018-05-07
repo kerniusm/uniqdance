@@ -5,8 +5,8 @@
             <div class="col-sm-4" *ngFor="let post of (posts | async) | slice: - 3">
               <div class="post">
                 <h3 class="post-title">{{ post.title }}</h3>
-                <a href="/naujienos/{{ post.slug }}"><img class="post-image" src="{{post.photoURL}}" alt=""></a>
-                <a href="/naujienos/{{ post.slug }}">Skaityti ></a>
+                <a routerLink="/naujienos/{{ post.slug }}"><img class="post-image" src="{{post.photoURL}}" alt=""></a>
+                <a routerLink="/naujienos/{{ post.slug }}">Skaityti ></a>
               </div>
             </div>
         </div>
