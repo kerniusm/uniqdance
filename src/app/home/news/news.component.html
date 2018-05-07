@@ -2,25 +2,11 @@
     <h1><span>Naujienos</span></h1>
     <div class="container">
         <div class="row">
-            <div class="col-sm">
+            <div class="col-sm-4" *ngFor="let post of (posts | async) | slice: - 3">
               <div class="post">
-                <h3 class="post-title">Lorem ipsum dolor</h3>
-                <a href="#"><img class="post-image" src="assets/photos/Apie-mus1.png" alt=""></a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <a href="#">Skaityti ></a></p>
-              </div>
-            </div>
-            <div class="col-sm">
-              <div class="post">
-                <h3 class="post-title">Lorem ipsum dolor</h3>
-                <a href="#"><img class="post-image" src="assets/photos/Apie-mus2.png" alt=""></a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <a href="#">Skaityti ></a></p>
-              </div>
-            </div>
-            <div class="col-sm">
-              <div class="post">
-                <h3 class="post-title">Lorem ipsum dolor</h3>
-                <a href="#"><img class="post-image" src="assets/photos/Apie-mus3.png" alt=""></a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <a href="#">Skaityti ></a></p>
+                <h3 class="post-title">{{ post.title }}</h3>
+                <a href="/naujienos/{{ post.slug }}"><img class="post-image" src="{{post.photoURL}}" alt=""></a>
+                <a href="/naujienos/{{ post.slug }}">Skaityti ></a>
               </div>
             </div>
         </div>

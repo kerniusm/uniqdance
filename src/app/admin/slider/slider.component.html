@@ -1,0 +1,19 @@
+<section class="slider-images admin-section">
+  <div class="container">
+    <h3>Įkelti nuotrauką</h3>
+    <form>
+      <div class="form-group">
+        <div class="upload-area" [class.bg-active]="(post?.photoURL)" (click)="fileUpload.click()" [ngStyle]="post?.photoURL && {'background-image': 'url('+ post.photoURL +')'}">
+          <span class="icon"></span>
+        </div>
+        <input multiple type="file" #fileUpload (change)="detectFile($event)" class="hidden-from-screen">
+      </div>
+    </form>
+    <ul class="all-elements row">
+    	<li class="element col-sm-4" *ngFor="let picture of pictures | async">
+    		<img class="image" src="{{picture.photoURL}}" alt="img">
+    		<button (click)="deletePicture(picture.id, picture.name)" class="btn btn-sm btn-outline-secondary btn-del">Trinti</button>
+    	</li>
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+.post {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .actions {
+      margin: 0 0 0 20px;
+    }
+    .post-title {
+      margin: 0;
+    }
+}
+.posts-list {
+  margin-top: 40px;
+}
+.filters {
+  a {
+    text-decoration: underline;
+    color: #000;
+    &.active {
+      text-decoration: none;
+      color: #f38586;
+    }
+  }
+}

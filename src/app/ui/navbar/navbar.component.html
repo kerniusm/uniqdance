@@ -1,6 +1,8 @@
-<header class="container header">
+<div *ngIf="!isLoginPage">
+<header class="container header" *ngIf="hideAdminMenu">
+  <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" routerLink="">
             <img src="assets/img/logo.png" alt="Uniqdance">
             <span>Šokiai visiems</span>
         </a>
@@ -28,7 +30,7 @@
                     <a class="nav-link" routerLink="" [ngx-scroll-to]="'#tvarkarastis'">Tvarkaraštis</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="" [ngx-scroll-to]="'#registracija'">Registracija</a>
+                    <a class="nav-link" routerLink="/registracija">Registracija</a>
                 </li>
                 <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                     <a class="nav-link" routerLink="/naujienos">Naujienos</a>
@@ -39,4 +41,36 @@
             </ul>
         </div>
     </nav>
+  </div>
 </header>
+
+<header class="header admin" *ngIf="!hideAdminMenu">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" routerLink="/admin/registrations">
+            <img src="assets/img/logo.png" alt="Uniqdance">
+            <span>Šokiai visiems</span>
+        </a>
+        <button (click)="toggleNav()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" [ngClass]="{'show': navToggled}" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a class="nav-link" routerLink="/admin/slider">Nuotraukos</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a class="nav-link" routerLink="/admin/posts">Blogo įrašai</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a class="nav-link" routerLink="/admin/registrations">Registracijos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="signOut()" routerLink="">Atsijungti</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+  </div>
+</header>
+</div>

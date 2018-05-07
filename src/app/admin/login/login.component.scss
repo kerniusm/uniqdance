@@ -3,6 +3,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .logo {
+    margin: 20px 0;
+  }
 
   form {
     display: flex;
@@ -10,6 +13,9 @@
 
     input {
       margin-bottom: 10px;
+    }
+    .btn {
+      width: 100%;
     }
   }
 
