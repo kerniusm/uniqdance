@@ -10,23 +10,8 @@
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
         <!-- Slides -->
-        <div class="swiper-slide">
-            <img src="assets/photos/gallery/A1 (4).jpg" alt="">
-        </div>
-        <div class="swiper-slide">
-            <img src="assets/photos/gallery/A1 (5).jpg" alt="">
-        </div>
-        <div class="swiper-slide">
-            <img src="assets/photos/gallery/A1 (6).jpg" alt="">
-        </div>
-        <div class="swiper-slide">
-            <img src="assets/photos/gallery/A1.jpg" alt="">
-        </div>
-        <div class="swiper-slide">
-            <img src="assets/photos/gallery/A2.jpg" alt="">
-        </div>
-        <div class="swiper-slide">
-            <img src="assets/photos/gallery/A3.jpg" alt="">
+        <div class="swiper-slide" *ngFor="let picture of pictures">
+            <img src="{{picture.photoURL}}" alt="">
         </div>
     </div>
     <!-- If we need pagination -->
