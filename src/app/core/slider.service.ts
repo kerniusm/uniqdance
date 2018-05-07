@@ -11,8 +11,7 @@ export class SliderService {
   ) { }
 
   	uploadPicture(upload) {
-  		console.log(upload);
-		const storageRef = firebase.storage().ref();
+  		const storageRef = firebase.storage().ref();
 		const imageName = new Date().getTime();
 
 		const uploadTask = storageRef.child(`slider/${imageName}`).put(upload);
@@ -38,7 +37,6 @@ export class SliderService {
 				}
 			}
 		);
-		console.log('accomplished');
 	}
 
 	getPictures() {
@@ -52,8 +50,7 @@ export class SliderService {
 					name : data.imageName
 				}
 			}
-
-			))
+		))
 	}
 
 	deleteImage(id, name) {
